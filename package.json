@@ -1,0 +1,12 @@
+{
+  "name": "generator-drupal-component",
+  "version": "0.1.0",
+  "description": "This is NOT for generating standard drupal modules. Generate drupal components.",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.17.7",
+    "yosay": "~1.0.0"
+  }
+}

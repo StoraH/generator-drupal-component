@@ -1,0 +1,14 @@
+<?php
+
+
+/**
+ * Implements hook_module_theme_override().
+ */
+function <%= ComponentName %>_module_theme_override() {
+  return array(
+    // array(
+    //   'base hook' => 'views_view',
+    //   'suggestion' => 'news_teaser'
+    // ),
+  );
+}

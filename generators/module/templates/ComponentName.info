@@ -1,0 +1,3 @@
+name = <%= ComponentName %>
+package = Components
+core = 7.x

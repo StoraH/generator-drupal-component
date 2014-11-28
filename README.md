@@ -9,7 +9,7 @@ Install Yeoman:
 
 Install the Angular-Scotty generator:
 
-    npm install -g generator-angular-scotty
+    npm install -g generator-drupal-components
 
 ### Generate component
     yo drupal-component

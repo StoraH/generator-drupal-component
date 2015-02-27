@@ -19,6 +19,7 @@ Install the drupal-component generator:
 * scss fil (yes/no)
 * twig (yes/no)
 * drupal module? (yes/no)
+* ctools content type? (yes/no)
 
 ### Generate component parts
 
@@ -29,3 +30,5 @@ Install the drupal-component generator:
 `yo drupal-component:twig`
 
 `yo drupal-component:module`
+
+`yo drupal-component:ctools-content_type`

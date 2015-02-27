@@ -39,6 +39,12 @@ var DrupalComponentGenerator = yeoman.generators.Base.extend({
       },
       {
         type: 'confirm',
+        name: 'generateCtools_ContentTypeGenerator',
+        message: 'Ctools content type?',
+        default: true
+      },
+      {
+        type: 'confirm',
         name: 'generateModule',
         message: 'Drupal module?',
         default: true
@@ -56,7 +62,10 @@ var DrupalComponentGenerator = yeoman.generators.Base.extend({
         this.composeWith("drupal-component:twig", {options: {'ComponentName': props.ComponentName}});
       }
       if (props.generateModule) {
-        this.composeWith("drupal-component:module", {options: {'ComponentName': props.ComponentName}});
+        this.composeWith("drupal-component:module", {options: {'ComponentName': props.ComponentName, generateCtools_ContentType: props.generateCtools_ContentTypeGenerator}});
+      }
+      if (props.generateCtools_ContentTypeGenerator) {
+        this.composeWith("drupal-component:ctools-content_type", {options: {'ComponentName': props.ComponentName}});
       }
       done();
     }.bind(this));

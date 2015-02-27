@@ -12,3 +12,5 @@ function <%= ComponentName %>_module_theme_override() {
     // ),
   );
 }
+
+<%= HOOK_ctools_plugin_directory %>

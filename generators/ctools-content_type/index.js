@@ -4,7 +4,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
-var moduleGenerator = yeoman.generators.Base.extend({
+var ctools_ContentTypeGenerator = yeoman.generators.Base.extend({
   prompting: function () {
     var done = this.async();
 
@@ -25,23 +25,14 @@ var moduleGenerator = yeoman.generators.Base.extend({
         this.ComponentName = this.options.ComponentName;
         this.componentPath = this.options.ComponentName + '/';
       }
-
-      this.HOOK_ctools_plugin_directory = '';
-      if (this.options && this.options.generateCtools_ContentType) {
-        var body = this.read('HOOK_ctools_plugin_directory', 'utf8');
-        body = this.engine(body, this);
-        this.HOOK_ctools_plugin_directory = body;
-      }
-
       done();
     }.bind(this));
   },
 
   writing: function () {
-    this.template('ComponentName.info', this.componentPath + this.ComponentName + '.info', this);
-    this.template('ComponentName.module', this.componentPath + this.ComponentName + '.module', this);
+    this.template('ComponentName.inc', this.componentPath + '/ctools-content_types/' + this.ComponentName + '.inc', this);
   },
 
 });
 
-module.exports = moduleGenerator;
+module.exports = ctools_ContentTypeGenerator;

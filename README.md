@@ -20,6 +20,7 @@ Install the drupal-component generator:
 * twig (yes/no)
 * drupal module? (yes/no)
 * ctools content type? (yes/no)
+* views style plugin? (yes/no)
 
 ### Generate component parts
 
@@ -32,3 +33,5 @@ Install the drupal-component generator:
 `yo drupal-component:module`
 
 `yo drupal-component:ctools-content_type`
+
+`yo drupal-component:views_style_plugin`

@@ -4,7 +4,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
-var moduleGenerator = yeoman.generators.Base.extend({
+var viewsStylePluginGenerator = yeoman.generators.Base.extend({
   prompting: function () {
     var done = this.async();
 
@@ -25,30 +25,15 @@ var moduleGenerator = yeoman.generators.Base.extend({
         this.ComponentName = this.options.ComponentName;
         this.componentPath = this.options.ComponentName + '/';
       }
-
-      this.HOOK_ctools_plugin_directory = '';
-      if (this.options && this.options.generateCtools_ContentType) {
-        var body = this.read('HOOK_ctools_plugin_directory', 'utf8');
-        body = this.engine(body, this);
-        this.HOOK_ctools_plugin_directory = body;
-      }
-
-      this.HOOK_views_api = '';
-      if (this.options && this.options.generateViewsStylePlugin) {
-        var body = this.read('HOOK_views_api', 'utf8');
-        body = this.engine(body, this);
-        this.HOOK_views_api = body;
-      }
-
       done();
     }.bind(this));
   },
 
   writing: function () {
-    this.template('ComponentName.info', this.componentPath + this.ComponentName + '.info', this);
-    this.template('ComponentName.module', this.componentPath + this.ComponentName + '.module', this);
+    this.template('ComponentName.tpl.php', this.componentPath + this.ComponentName + '.tpl.php', this);
+    this.template('ComponentName.views.inc', this.componentPath + this.ComponentName + '.views.inc', this);
   },
 
 });
 
-module.exports = moduleGenerator;
+module.exports = viewsStylePluginGenerator;

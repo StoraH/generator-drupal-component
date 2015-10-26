@@ -31,7 +31,7 @@ var ctools_ContentTypeGenerator = yeoman.generators.Base.extend({
 
   writing: function () {
     this.template('ComponentName.inc', this.componentPath + '/ctools-content_types/' + this.ComponentName + '.inc', this);
-  },
+  }
 
 });
 

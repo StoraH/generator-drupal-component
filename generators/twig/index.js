@@ -15,27 +15,39 @@ var TwigGenerator = yeoman.generators.Base.extend({
         }.bind(this),
         type: 'input',
         name: 'ComponentName',
-        message: 'What is the name of the component?',
+        message: 'What is the name of the component?'
       },
       {
+        type: 'confirm',
+        name: 'entityModel',
+        message: 'Entity model?',
+        default: false
+      },
+      {
+        when: function (response) {
+          return response.entityModel;
+        },
         type: 'input',
         name: 'entityType',
         message: 'Which entity type?',
         default: 'node'
       },
       {
-        type: 'confirm',
-        name: 'useViewMode',
-        message: 'View mode override?',
-        default: true
-      },
-      {
         when: function (response) {
-          return response.useViewMode;
+          return response.entityModel;
         },
         type: 'input',
         name: 'bundle',
-        message: 'Which bundle?',
+        message: 'Which bundle?'
+      },
+      {
+        when: function (response) {
+          return response.entityModel;
+        },
+        type: 'confirm',
+        name: 'useViewMode',
+        message: 'View mode override?',
+        default: false
       },
       {
         when: function (response) {
@@ -45,7 +57,7 @@ var TwigGenerator = yeoman.generators.Base.extend({
         name: 'viewMode',
         message: 'Which view mode?',
         default: 'full'
-      },
+      }
     ];
 
 
@@ -65,13 +77,15 @@ var TwigGenerator = yeoman.generators.Base.extend({
         this.viewMode = props.viewMode;
       }
 
+      this.entityModel = props.entityModel;
+
       done();
     }.bind(this));
   },
 
   writing: function () {
     this.template('ComponentName.html.twig', this.componentPath + this.ComponentName + '.html.twig', this);
-  },
+  }
 
 });
 

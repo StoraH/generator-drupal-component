@@ -1,6 +1,6 @@
 {# slate
-  name = <%= ComponentName %>
-  models[<%= bundle %>] = entity:<%= entityType %><% if (useViewMode) { %>
+  name = <%= ComponentName %><% if (entityModel) { %>
+  models[<%= bundle %>] = entity:<%= entityType %><% } %><% if (useViewMode) { %>
   view_mode[<%= entityType %>][<%= bundle %>] = <%= viewMode %><% } %>
 #}
 
